@@ -39,9 +39,9 @@ module.exports = {
 
 3. Use the generated utility classes in your HTML:
 ```html
-<div class="p-vw-phone[25]">Content with padding equal to 100px when the viewport width is 375px</div>
+<div class="p-vw-phone-[100]">Content with padding equal to 100px when the viewport width is 375px</div>
 ```
-In this example, the p-vw-phone-[100] class will apply a padding of 100px when the viewport width is 375px.
+In this example, the p-vw-phone-[150] class will apply a padding of 150px when the viewport width is 375px.
 
 ## License
 MIT License
