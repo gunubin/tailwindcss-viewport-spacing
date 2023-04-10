@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-viewport-spacing",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -19,7 +19,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "tailwind,tailwindcss,tailwindcss-plugin,tailwindcss-utilities,plugin,utilities,viewport,spacing"
+    "tailwind",
+    "tailwindcss",
+    "tailwindcss-plugin",
+    "tailwindcss-utilities",
+    "plugin",
+    "utilities",
+    "viewport",
+    "spacing"
   ],
   "description": ""
 }
