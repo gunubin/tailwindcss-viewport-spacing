@@ -69,4 +69,4 @@ const viewportSpacing = plugin.withOptions((options) => function ({matchUtilitie
   Object.keys(options).forEach(processScreens)
 })
 
-module.exports = {viewportSpacing}
+module.exports = viewportSpacing

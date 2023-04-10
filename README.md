@@ -19,7 +19,7 @@ yarn add tailwindcss-viewport-spacing
 1. Import the plugin in your tailwind.config.js file:
 
 ```javascript
-const { viewportSpacing } = require('tailwindcss-viewport-spacing');
+const viewportSpacing = require('tailwindcss-viewport-spacing');
 ```
 
 2. Add the plugin to your tailwind.config.js plugins section and configure the options:
