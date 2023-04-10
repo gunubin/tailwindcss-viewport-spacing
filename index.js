@@ -1,8 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 
 const viewportSpacing = plugin.withOptions((options) => function ({matchUtilities}) {
-  
-  const nameKey = 'vw'
+  const units = ['vw', 'vh']
   
   const utilityNames = {
     p: 'padding',
@@ -30,43 +29,47 @@ const viewportSpacing = plugin.withOptions((options) => function ({matchUtilitie
     'min-w': 'min-width',
     'min-h': 'min-height',
     text: 'font-size',
-    start:	'inset-inline-start',
-    end:	'inset-inline-end',
+    start: 'inset-inline-start',
+    end: 'inset-inline-end',
     inset: 'inset',
   }
   
-  const generateCssValue = (value, multiplier) => `${value * (100 / multiplier)}${nameKey}`
+  const generateCssValue = (value, multiplier, unit) => `${value * (100 / multiplier)}${unit}`
   
-  const generateUtilities = (prop, value, multiplier) => {
+  const generateUtilities = (prop, value, multiplier, unit) => {
     const props = Array.isArray(prop) ? prop : [prop]
     return props.reduce((acc, prop) => {
-      acc[prop] = generateCssValue(value, multiplier)
+      acc[prop] = generateCssValue(value, multiplier, unit)
       return acc
     }, {})
   }
   
-  const processEntries = (entries, generateFunction, multiplier) => {
+  const processEntries = (entries, generateFunction, multiplier, unit) => {
     entries.forEach(([key, prop]) => {
       matchUtilities({
         [`${key}`]: (value) => {
-          return generateFunction(prop, value, multiplier)
+          return generateFunction(prop, value, multiplier, unit)
         },
       })
     })
   }
   
-  const utilityEntries = (screenName = '') => {
+  const utilityEntries = (unit, screenName = '') => {
     return Object.entries(utilityNames).map(([key, prop]) => {
-      return [`${key}-${nameKey}${screenName ? `-${screenName}` : ''}`, prop]
+      return [`${key}-${unit}${screenName ? `-${screenName}` : ''}`, prop]
     })
   }
   
-  const processScreens = (screenName) => {
-    const screenMultiplier = options[screenName]
-    processEntries(utilityEntries(screenName), generateUtilities, screenMultiplier)
+  const processScreens = (unit, screenName) => {
+    const screenMultiplier = options[unit][screenName]
+    processEntries(utilityEntries(unit, screenName), generateUtilities, screenMultiplier, unit)
   }
   
-  Object.keys(options).forEach(processScreens)
+  units.forEach((unit) => {
+    Object.keys(options[unit]).forEach((screenName) => {
+      processScreens(unit, screenName)
+    })
+  })
 })
 
 module.exports = viewportSpacing
