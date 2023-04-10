@@ -53,10 +53,10 @@ viewportSpacing({
 
 3. Use the generated utility classes in your HTML:
 ```html
-<div class="p-vw-phone-100">Content with padding equal to 100px when the viewport width is 375px</div>
-<div class="h-vh-phone-100">Content with height equal to 100px when the viewport height is 667px</div>
+<div class="p-vw-phone-[100]">Content with padding equal to 100px when the viewport width is 375px</div>
+<div class="h-vh-phone-[100]">Content with height equal to 100px when the viewport height is 667px</div>
 ```
-In this example, the p-vw-phone-100 class will apply a padding of 100px when the viewport width is 375px, and the h-vh-phone-100 class will apply a height of 100px when the viewport height is 667px.
+In this example, the p-vw-phone-[100] class will apply a padding of 100px when the viewport width is 375px, and the h-vh-phone-[100] class will apply a height of 100px when the viewport height is 667px.
 
 ## Supported CSS Properties
 - Padding: Apply viewport-based padding to elements.
